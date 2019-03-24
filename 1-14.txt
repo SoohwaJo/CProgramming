@@ -1,0 +1,31 @@
+//******************************14
+
+#include <stdio.h>
+
+int main() {
+
+	int i;
+	double a = 1.0, b = 1.0, c = 1.0, d = 1.0, x, sin, cos;
+
+	printf("라디안 값을 입력하시오.");
+	scanf_s("%lf", &x);
+
+	sin = x;
+	cos = 1.0;
+
+	for (i = 2; i <= 100; i++) {
+		a *= -1;
+		b *= x * x;
+		c *= ((2 * i) - 2)*((2 * i) - 1);
+		d *= ((2 * i) - 3)*((2 * i) - 2);
+
+		sin += (a*b * x) / c;
+		cos += (a*b) / d;
+
+	}
+	printf("sin x :%f\ncos x :%f", sin, cos);
+
+	return 0;
+
+}
+

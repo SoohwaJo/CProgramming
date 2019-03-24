@@ -1,0 +1,22 @@
+//******************************9
+
+#include <stdio.h>
+
+int main() {
+
+	int n, i, denom = 1;
+	double sum = 0.0, c = 4.0;
+
+	printf("양의 정수를 입력하시오.");
+	scanf_s("%d", &n);
+
+	for (i = 1; i <= n; i++) {
+		denom = (i * 2) - 1;
+		sum += c / denom;
+		c *= -1.0;
+	}
+
+	printf("%lf", sum);
+
+	return 0;
+}

@@ -1,0 +1,25 @@
+//******************************13
+
+#include <stdio.h>
+
+int main() {
+
+	int i, n;
+	double r, sum0 = 0.0, plus;
+
+	printf("이자율");
+	scanf_s("%lf", &r);
+
+	for (i = 1; i <= 12; i++) {
+
+		printf("입금액");
+		scanf_s("%d", &n);
+
+		plus = (sum0 + n)*r;
+		sum0 = sum0 + n + plus;
+
+		printf("예금잔고 : %lf\n\n", sum0);
+	}
+
+	return 0;
+}
