@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+
+	int x, n=2;
+	double y=1, y1, a=0, b=1, c;
+	scanf_s("%d", &x);
+
+	while (1) {
+		if (a < b) {
+			y1 = y;
+			c = x / y;
+			y = (c + y) / 2;
+			b = y1 - y;
+			a = y/100000;
+			if (b < 0)
+				b *= -1;
+		}
+		else
+			break;
+		printf("%d %f %f %f %f\n", x, y1, c, y, a);
+
+	}
+
+	//printf("%d %f %f %f %f", x, y1, y, b, a);
+
+	return 0;
+}

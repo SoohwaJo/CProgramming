@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main() {
+
+	double a, b, result=0;
+
+	scanf_s("%lf", &a);
+
+	a /= 10000;
+
+	while (1) {
+
+		if (50000 < a) {
+			b = a - 50000;
+			result += b * 0.4;
+			a -= b;
+			//printf("%f", result*10000);
+		}
+		else if (15000 < a) {
+			b = a - 15000;
+			result += b * 0.38;
+			a -= b;
+			//printf("%f", result*10000);
+		}
+		else if (8800 < a) {
+			b = a - 8800;
+			result += b * 0.35;
+			a -= b;
+			//printf("%f", result*10000);
+		}
+		else if (4600 < a) {
+			b = a - 4600;
+			result += b * 0.24;
+			a -= b;
+			//printf("%f", result*10000);
+		}
+		else if (1200 < a) {
+			b = a - 1200;
+			result += b * 0.15;
+			a -= b;
+			//printf("%f", result*10000);
+		}
+		else {
+			b = a;
+			result += b * 0.06;
+			break;
+			//printf("%f", result*10000);
+		}
+	}
+
+	result *= 10000;
+
+	printf("%f", result);
+
+	return 0;
+}

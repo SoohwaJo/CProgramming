@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+
+	int a1, a2, a3, count = 0;
+
+	scanf_s("%d %d", &a1, &a2);
+	if (a1 <= a2)
+		count++;
+
+	while (1) {
+
+		scanf_s("%d", &a3);
+		
+		if (a3 == -1)
+			break;
+
+		if (a1 >= a2 && a3 >= a2) {
+			count++;
+		}
+		a1 = a2;
+		a2 = a3;
+	}
+
+	if (a1 >= a2)
+		count++;
+
+	printf("%d", count);
+
+	return 0;
+}
