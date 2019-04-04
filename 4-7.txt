@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+	int N, x = 0, y = 0, count = 0;
+
+	printf("N의 값을 입력하시오.");
+	scanf_s("%d", &N);
+
+	srand((unsigned int)time(NULL));
+
+	for (int i = 0; i < 1000; i++) {
+		x = 0;
+		y = 0;
+		while (1) {
+			if (x == N || x == (-1 * N) || y ==N || y == (-1 * N))
+				break;
+			int step = rand() % 4;
+			if (step == 0) {
+				x++;
+				count++;
+			}
+			else if (step == 1) {
+				x--;
+				count++;
+			}
+			else if (step == 2) {
+				y++;
+				count++;
+			}
+			else {
+				y--;
+				count++;
+			}
+		}
+	}
+	printf("결과 : %d\n", count/1000);
+
+	return 0;
+}
