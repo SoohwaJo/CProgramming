@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+
+	int count = 0, result=0;
+
+	for (int i = 2; i <= 98; i++) {
+		for (int j = i+1; j <= 99; j++) {
+			for (int k = j+1; k <= 100; k++) {
+				for (int l = 2; l <= 50; l++) {
+					if (i%l == 0 && j%l == 0 || i % l == 0 && k%l == 0 || j % l == 0 && k%l == 0) {
+						result = 1;
+						continue;
+					}
+				}
+				if (result != 1) {
+					count++;
+				}
+				result = 0;
+			}
+		}
+	}
+
+	printf("세 정수쌍의 개수 : %d", count);
+	return 0;
+}
