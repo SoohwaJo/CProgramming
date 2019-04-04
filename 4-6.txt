@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+
+	int N, a=0, count=0, input;
+
+	printf("양의 정수를 입력하시오.");
+	scanf_s("%d", &N);
+
+	for (int i = N; i >= 1; i--) {
+		input = i;
+		a = 0;
+		while (input >= 1) {
+			a += input % 10;
+			input /= 10;
+		}
+		if (a % 7 == 0) {
+			count++;
+		}
+	}
+	printf("7의 배수의 개수 : %d", count);
+
+	return 0;
+}
