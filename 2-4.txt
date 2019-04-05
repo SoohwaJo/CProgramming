@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+
+	int i, n, min;
+
+	scanf_s("%d", &n);
+	min = n;
+
+	for(i=2; i<=10; i++){
+		scanf_s("%d", &n);
+		if (min < 0)
+			min = n;
+
+		else if (n <= min && n >= 0)
+			min = n;
+	}
+
+	if (min < 0)
+		printf("%d", -1);
+	else
+		printf("%d", min);
+
+	return 0;
+}
