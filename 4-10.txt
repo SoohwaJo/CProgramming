@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+
+	int a, b, a1, b1, c, d, c1, d1, x=0, y=0, e;
+
+	printf("좌표점을 입력하시오.");
+	scanf_s("%d %d %d %d %d %d %d %d", &a, &b, &a1, &b1, &c, &d, &c1, &d1);
+	
+	if (a1 < a) {
+		e = a;
+		a = a1;
+		a1 = e;
+	}
+	if (c1 < c) {
+		e = c;
+		c = c1;
+		c1 = e;
+	}
+	if (b1 < b) {
+		e = b;
+		b = b1;
+		b1 = e;
+	}
+	if (d1 < d) {
+		e = d;
+		d = d1;
+		d1 = e;
+	}
+
+
+	for (int i = a; i <= a1; i++) {
+		for (int j = c; j <= c1; j++) {
+			if (i == j)
+				x++;
+		}
+	}
+	x -= 1; //시작점 빼줌
+
+	for (int i = b; i <= b1; i++){
+		for (int j = d; j <= d1; j++) {
+			if (i == j)
+				y++;
+		}
+	}
+	y -= 1; //시작점 빼줌
+
+	if (y < 0)
+		y = 0;
+	else if (x < 0)
+		x = 0;
+
+	printf("교차하는 영역 : %d", x*y);
+	return 0;
+}
