@@ -1,0 +1,26 @@
+//*******4
+
+#include <stdio.h>
+
+int main() {
+
+	int N, a, arr[10] = { 0 };
+
+	printf("양의 정수를 입력하시오.");
+	scanf_s("%d", &N);
+
+	while (N >= 1) {
+		a = N % 10;
+		for (int i = 0; i < 10; i++) {
+			if (a == i)
+				arr[i]++;
+		}
+		N /= 10;
+	}
+
+	for (int i = 0; i < 10; i++) {
+		printf("%d,", arr[i]);
+	}
+
+	return 0;
+}
