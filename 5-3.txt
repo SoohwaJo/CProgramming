@@ -1,0 +1,28 @@
+//*********3
+
+#include <stdio.h>
+#define Max 100
+#include <math.h>
+
+int main() {
+	int n, arr[Max];
+	double average = 0, SD = 0;
+
+	printf("정수 개수 : ");
+	scanf_s("%d", &n);
+	printf("정수를 입력하시오.");
+
+	for (int i = 0; i < n; i++) {
+		scanf_s("%d", &arr[i]);
+		average += arr[i];
+	}
+	average /= n;
+
+	for (int i = 0; i < n; i++) {
+		SD += (arr[i] - average)*(arr[i] - average);
+	}
+	SD = sqrt(SD / n);
+
+	printf("평균 : %lf 표준편차 : %lf", average, SD);
+	return 0;
+}
