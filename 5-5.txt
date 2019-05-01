@@ -1,0 +1,45 @@
+//******5
+
+#include <stdio.h>
+
+int main() {
+
+	int Days[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int result = 0, mday = 0, yday = 0, y_day = 0, day = 0, y1, m1, d1, y2, m2, d2;
+	int count = 0;
+
+	printf("생일과 오늘날짜를 입력하시오. ");
+	scanf_s("%d %d %d %d %d %d", &y1, &m1, &d1, &y2, &m2, &d2);
+
+	day = Days[m1] - d1 + d2; //시작달과 끝달의 날짜 합
+
+	if (m1 == 12) {
+		m1 = 0;
+		y1 += 1;
+	}
+
+	for (int i = m1 + 1; i < 13; i++) {
+		if (i == m2)
+			break;
+		mday += Days[i];
+		if (i == 12) {
+			i = 0;
+			result = 1;
+		}
+	}
+	if (result == 1)
+		y1 += 1;
+
+	for (int i = 0; i < 13; i++)
+		yday += Days[i];		//1년=365일
+
+	while (1) {
+		if (y1 == y2)
+			break;
+		y_day += yday;
+		y1++;
+	}
+
+	printf("태어난지 %d일", day + y_day + mday);
+	return 0;
+}
