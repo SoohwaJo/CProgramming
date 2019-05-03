@@ -1,0 +1,28 @@
+//*******8
+
+#pragma warning(disable:4996)
+#include <stdio.h>
+#define Max 100
+
+int main() {
+
+	int arr[Max];
+	int n = 0;
+
+	FILE *fp = fopen("input8.txt", "r");
+	while (fscanf(fp, "%d", &arr[n]) != EOF) {
+		n++;
+	}
+	fclose(fp);
+
+	for (int i = 0; i < n / 2; i++) {
+		int tmp = arr[i];
+		arr[i] = arr[n - 1 - i];
+		arr[n - i - 1] = tmp;
+	}
+
+	for (int i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+
+	return 0;
+}
