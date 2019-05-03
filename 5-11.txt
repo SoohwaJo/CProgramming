@@ -1,0 +1,31 @@
+//******11
+
+#pragma warning(disable:4996)
+#include <stdio.h>
+#define Max 100
+
+int main() {
+
+	int n = 0, data1[Max], data2[Max], data3[Max * 2];
+
+	FILE *fp = fopen("input11_1.txt", "r");
+	while (fscanf(fp, "%d", &data1[n]) != EOF)
+		n++;
+	fclose(fp);
+	n = 0;
+	FILE *fp_1 = fopen("input11_2.txt", "r");
+	while (fscanf(fp_1, "%d", &data2[n]) != EOF)
+		n++;
+	fclose(fp_1);
+
+	for (int i = 0; i < 2 * n; i++) {
+		if (i % 2 == 0)
+			data3[i] = data1[i / 2];
+		else
+			data3[i] = data2[(i - 1) / 2];
+	}
+	for (int i = 0; i < 2 * n; i++)
+		printf("%d ", data3[i]);
+
+	return 0;
+}
