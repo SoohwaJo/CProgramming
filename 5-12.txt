@@ -1,0 +1,49 @@
+//******12
+
+#pragma warning (disable:4996)
+#include <stdio.h>
+#include <math.h>
+#define Max 100
+
+int main() {
+
+	int arr[Max], n = 0, j = 0, k = 0;
+	double ax = 0, ay = 0, sum = 0, arrx[Max / 2], arry[Max / 2];
+
+	FILE *fp = fopen("input12.txt", "r");
+	while (fscanf(fp, "%d", &arr[n]) != EOF)
+		n++;
+	fclose(fp);
+
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 0)
+			ax += arr[i];
+		else
+			ay += arr[i];
+	}
+	ax /= n / 2;
+	ay /= n / 2;
+
+	printf("ÁßÁ¡ xÁÂÇ¥ : %lf ÁßÁ¡ yÁÂÇ¥ : %lf\n", ax, ay);
+
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 0) {
+			arrx[j] = arr[i] - ax;
+			j++;
+		}
+		else {
+			arry[k] = arr[i] - ay;
+			k++;
+		}
+	}
+
+	for (int i = 0; i < j; i++) {
+		sum += sqrt(arrx[i] * arrx[i] + arry[i] * arry[i]);
+	}
+
+	sum /= n / 2;
+
+	printf("°Å¸®ÀÇ Æò±Õ : %lf", sum);
+
+	return 0;
+}
